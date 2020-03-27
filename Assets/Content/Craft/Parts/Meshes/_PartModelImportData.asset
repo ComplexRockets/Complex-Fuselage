@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 2135884626, guid: c37b925f2b4978342b2e0b83a8fa404a, type: 3}
+  m_Name: _PartModelImportData
+  m_EditorClassIdentifier: 
+  _models:
+  - _id: Cylinder Tank
+    _meshes:
+    - _id: AftSkirt
+      _initialized: 1
+      _isCollider: 0
+      _mesh: {fileID: -1312558660890385762, guid: 867ed6b9e840ffd45999733d2ecf54d3,
+        type: 3}
+      _submeshMap: 02000000
+      _subpartId: 2
+    - _id: Bottom
+      _initialized: 1
+      _isCollider: 0
+      _mesh: {fileID: 7265744515449303197, guid: 867ed6b9e840ffd45999733d2ecf54d3,
+        type: 3}
+      _submeshMap: 01000000
+      _subpartId: 1
+    - _id: FwdSkirt
+      _initialized: 1
+      _isCollider: 0
+      _mesh: {fileID: -2110811554424479067, guid: 867ed6b9e840ffd45999733d2ecf54d3,
+        type: 3}
+      _submeshMap: 02000000
+      _subpartId: 2
+    - _id: Middle
+      _initialized: 1
+      _isCollider: 0
+      _mesh: {fileID: 1385279003812690709, guid: 867ed6b9e840ffd45999733d2ecf54d3,
+        type: 3}
+      _submeshMap: 00000000
+      _subpartId: 0
+    - _id: Top
+      _initialized: 1
+      _isCollider: 0
+      _mesh: {fileID: 8201437419870775723, guid: 867ed6b9e840ffd45999733d2ecf54d3,
+        type: 3}
+      _submeshMap: 01000000
+      _subpartId: 1
+    _model: {fileID: -927199367670048503, guid: 867ed6b9e840ffd45999733d2ecf54d3,
+      type: 3}
