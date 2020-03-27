@@ -11,7 +11,6 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
     using UnityEngine;
 
     public class CylinderTankScript : PartModifierScript<CylinderTankData> {
-
         private float cylinderHeight = 1f;
         private float fwdBulkheadHeight = 0.5f;
         private float aftBulkheadHeight = 0.5f;
@@ -20,15 +19,6 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
         private float aftSkirtHeight = 0.25f;
         private float fwdBulkheadDiameter;
         private float aftBulkheadDiameter;
-        private float oldCh;
-        private float oldFdh;
-        private float oldAdh;
-        private float oldFsh;
-        private float oldAsh;
-        private bool FwdDomeOccupied;
-        private bool AftDomeOccupied;
-        private bool FwdSkirtOccupied;
-        private bool AftSkirtOccupied;
         private GameObject Tank;
         private GameObject Bottom;
         private GameObject Middle;
@@ -58,7 +48,6 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
             TankDiameterUpdated (Data.TankDiameter / tankDiameter);
             FwdSkirtHeightUpdated (Data.FwdSkirtHeight / fwdSkirtHeight);
             AftSkirtHeightUpdated (Data.AftSkirtHeight / aftSkirtHeight);
-            OffsetUpdate (Data.FwdBulkheadHeight / fwdBulkheadHeight, Data.AftBulkheadHeight / aftBulkheadHeight, Data.FwdSkirtHeight / fwdSkirtHeight, Data.AftSkirtHeight / aftSkirtHeight, Data.CylinderHeight / cylinderHeight);
             FuelPercentageUpdated ();
         }
 
@@ -94,31 +83,15 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
                 foreach (AttachPoint attachPoint in base.PartScript.Data.AttachPoints) {
                     if (attachPoint.Tag == "STop") {
                         attachPoint.AttachPointScript.transform.localPosition = fwdSkirtYOffset;
-                        if (attachPoint.PartConnections.Count == 0) FwdSkirtOccupied = false;
-                        else FwdSkirtOccupied = true;
-
                     } else if (attachPoint.Tag == "SBottom") {
                         attachPoint.AttachPointScript.transform.localPosition = aftSkirtYOffset;
-                        if (attachPoint.PartConnections.Count == 0) AftSkirtOccupied = false;
-                        else AftSkirtOccupied = true;
-
                     } else if (attachPoint.Tag == "ETop") {
                         attachPoint.AttachPointScript.transform.localPosition = fwdBulkheadYOffset;
-                        if (attachPoint.PartConnections.Count == 0) FwdDomeOccupied = false;
-                        else FwdDomeOccupied = true;
-
                     } else if (attachPoint.Tag == "EBottom") {
                         attachPoint.AttachPointScript.transform.localPosition = aftBulkheadYOffset;
-                        if (attachPoint.PartConnections.Count == 0) AftDomeOccupied = false;
-                        else AftDomeOccupied = true;
-
                     } else if (attachPoint.Tag == "Front") {
                         attachPoint.AttachPointScript.transform.localPosition = xOffset;
                     }
-                    Debug.Log(FwdDomeOccupied);
-                    Debug.Log(AftDomeOccupied);
-                    Debug.Log(FwdSkirtOccupied);
-                    Debug.Log(AftSkirtOccupied);
                 }
             }
         }
@@ -201,26 +174,6 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
             temp.x = fwdBulkheadDiameter;
             temp.y = fwdBulkheadDiameter;
             Top.transform.localScale = temp;
-        }
-
-        public void OffsetUpdate (float fdh, float adh, float fsh, float ash, float ch) {
-                float offset = 0;
-
-                if (FwdDomeOccupied || FwdSkirtOccupied && AftDomeOccupied || AftSkirtOccupied);
-                else if (FwdDomeOccupied && fdh >= fsh) offset += (ch / 2 + fdh) - (oldCh / 2 + oldFdh);
-                else if (AftDomeOccupied && adh >= ash) offset += (ch / 2 + fdh) - (oldCh / 2 + oldFdh);
-                else if (FwdSkirtOccupied && fsh > fdh) offset += (ch / 2 + fsh) - (oldCh / 2 + oldFsh);
-                else if (AftSkirtOccupied && ash > adh) offset += (ch / 2 + fsh) - (oldCh / 2 + oldFsh);
-
-                temp = transform.localPosition;
-                temp.y = offset;
-                transform.localPosition = temp;
-
-                oldFdh = fdh;
-                oldAdh = adh;
-                oldFsh = fsh;
-                oldAsh = ash;
-                oldCh = ch;
         }
 
         public override void OnCraftStructureChanged (ICraftScript craftScript) {
