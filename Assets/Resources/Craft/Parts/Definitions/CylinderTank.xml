@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Part name="Cylinder Tank">
+  <PartType id="CylinderTank" includeInBodyDrag="true" name="Cylinder Tank" prefabPath="Assets/Resources/Craft/Parts/Prefabs/CylinderTank.prefab" mass="0" price="0" partCollisions="Default" defaultMaterials="0,4,0,3,4" subpartsSharePartStyle="false" stylesShareHeader="false">
+    <Modifiers>
+      <Config autoActivateIfNoStageOrActivationGroup="true" buoyancyBaseScale="1" buoyancyUserScale="1" centerOfMass="0,0,0" collisionDisconnectImpulse="1000" collisionDisconnectVelocity="15" collisionExplodeImpulse="2000" collisionExplodeVelocity="30" collisionPreventExternalDisconnections="false" collisionVelocityMode="NormalOnly" dragScale="1" fuelLine="false" heatShield="0" includeInDrag="true" inertiaTensorBaseScale="1" inertiaTensorMin="0.05" inertiaTensorUserScale="1" massScale="1" maxDamage="100" maxTemperature="1500" partCollisionHandling="Default" partCollisionResponse="Default" partScale="1,1,1" preventDebris="false" raiseWaterEventsEvenIfNotBuoyant="false" stageActivationType="None" supportsActivation="false" thermalMassRatio="1" inspectorEnabled="true" partPropertiesEnabled="true" staticPriceAndMass="false" />
+      <FuelTank autoFuelType="true" capacity="0" fuel="0" fuelType="LOX/RP1" priority="0" subPriority="0" inspectorEnabled="true" partPropertiesEnabled="true" staticPriceAndMass="false" />
+      <MoFuselageMod.CylinderTank materialShell="Al-Li 2195" cylinderHeight="1" tankDiameter="1" fwdBulkheadHeight="0.5" aftBulkheadHeight="0.5" fwdSkirtHeight="0.25" aftSkirtHeight="0.25" fuelPercentage="100" inspectorEnabled="true" partPropertiesEnabled="true" staticPriceAndMass="false" />
+    </Modifiers>
+    <AttachPoints>
+      <AttachPoint name="AttachPointSTop" tag="STop" displayName="Top" position="0,0.75,0" rotation="270,0,0" allowRotation="false" allowInvertedConnection="false" canReceive="true" canSeek="true" ignoreSurfaces="false" fuelLine="true" />
+      <AttachPoint name="AttachPointSBottom" tag="SBottom" displayName="Bottom" position="0,-0.75,0" rotation="90,0,0" allowRotation="false" allowInvertedConnection="false" canReceive="true" canSeek="true" ignoreSurfaces="false" fuelLine="true" />
+      <AttachPoint name="AttachPointSTopLoad" tag="STop" displayName="TopShell" position="0,0.75,0" rotation="270,0,0" allowRotation="false" allowInvertedConnection="false" canReceive="true" canSeek="true" ignoreSurfaces="false" connectionType="Shell" />
+      <AttachPoint name="AttachPointSBottomLoad" tag="SBottom" displayName="BottomShell" position="0,-0.75,0" rotation="90,0,0" allowRotation="false" allowInvertedConnection="false" canReceive="true" canSeek="true" ignoreSurfaces="false" connectionType="Shell" />
+      <AttachPoint name="AttachPointETop" tag="ETop" displayName="Top" position="0,0.979,0" rotation="270,0,0" allowRotation="false" allowInvertedConnection="false" canReceive="true" canSeek="true" ignoreSurfaces="false" fuelLine="true" />
+      <AttachPoint name="AttachPointEBottom" tag="EBottom" displayName="Bottom" position="0,-0.986,0" rotation="90,0,0" allowRotation="false" allowInvertedConnection="false" canReceive="true" canSeek="true" ignoreSurfaces="false" fuelLine="true" />
+      <AttachPoint name="AttachPointETopLoad" tag="ETop" displayName="TopShell" position="0,0.981,0" rotation="270,0,0" allowRotation="false" allowInvertedConnection="false" canReceive="true" canSeek="true" ignoreSurfaces="false" connectionType="Shell" />
+      <AttachPoint name="AttachPointEBottomLoad" tag="EBottom" displayName="BottomShell" position="0,-0.984,0" rotation="90,0,0" allowRotation="false" allowInvertedConnection="false" canReceive="true" canSeek="true" ignoreSurfaces="false" connectionType="Shell" />
+      <AttachPoint name="AttachPointRotate" tag="Front" displayName="Rotate" position="0,0,0.5" rotation="0,0,0" allowRotation="true" allowInvertedConnection="false" canReceive="true" canSeek="true" ignoreSurfaces="false" />
+      <AttachPoint name="AttachPointSurface1" displayName="Surface" surface="MiddleCollider" canSeek="false" />
+      <AttachPoint name="AttachPointSurface2" displayName="Surface" surface="BottomCollider" canSeek="false" />
+      <AttachPoint name="AttachPointSurface3" displayName="Surface" surface="TopCollider" canSeek="false" />
+    </AttachPoints>
+    <SubpartTypes>
+      <SubpartType index="0" xmlName="CylinderStyle" displayName="Cylinder" />
+      <SubpartType index="1" xmlName="Domes" displayName="Domes" />
+      <SubpartType index="2" xmlName="Skirts" displayName="Skirts" />
+    </SubpartTypes>
+  </PartType>
+  <DesignerParts>
+    <DesignerPart name="Cylinder Tank" category="Structural" description="A cylinder tank with foward/after skirts. You can store your fuel or liquid material here." order="0" showInDesigner="true" snapshotDistanceScaler="1" snapshotRotation="30,30,0">
+      <Assembly>
+        <Parts>
+          <Part id="1" partType="CylinderTank" position="0,0,0" rotation="0,0,0">
+            <Config />
+            <FuelTank />
+            <MoFuselageMod.CylinderTank />
+          </Part>
+        </Parts>
+      </Assembly>
+    </DesignerPart>
+  </DesignerParts>
+  <PartStyles>
+    <SubpartStyles subpartIndex="0">
+      <Style id="Solid-1" displayName="Cylinder">
+        <TextureStyles>
+          <TextureStyle id="Fuselage7" />
+          <TextureStyle id="Fuselage1" />
+          <TextureStyle id="Fuselage2" />
+          <TextureStyle id="Fuselage3" />
+          <TextureStyle id="Fuselage4" />
+          <TextureStyle id="Fuselage5" />
+          <TextureStyle id="Fuselage6" />
+          <TextureStyle id="Fuselage8" />
+          <TextureStyle id="Fuselage9" />
+          <TextureStyle id="Fuselage10" />
+          <TextureStyle id="Fuselage11" />
+          <TextureStyle id="Default" />
+        </TextureStyles>
+      </Style>
+    </SubpartStyles>
+    <SubpartStyles subpartIndex="1">
+      <Style id="DomeStyle" displayName="Domes">
+        <TextureStyles>
+          <TextureStyle id="Fuselage2" />
+          <TextureStyle id="Fuselage1" />
+          <TextureStyle id="Fuselage3" />
+          <TextureStyle id="Fuselage4" />
+          <TextureStyle id="Fuselage5" />
+          <TextureStyle id="Fuselage6" />
+          <TextureStyle id="Fuselage7" />
+          <TextureStyle id="Fuselage8" />
+          <TextureStyle id="Fuselage9" />
+          <TextureStyle id="Fuselage10" />
+          <TextureStyle id="Fuselage11" />
+          <TextureStyle id="Default" />
+        </TextureStyles>
+      </Style>
+    </SubpartStyles>
+    <SubpartStyles subpartIndex="2">
+      <Style id="SkirtsStyle" displayName="Skirts">
+        <TextureStyles>
+          <TextureStyle id="Fuselage5" />
+          <TextureStyle id="Fuselage1" />
+          <TextureStyle id="Fuselage2" />
+          <TextureStyle id="Fuselage3" />
+          <TextureStyle id="Fuselage4" />
+          <TextureStyle id="Fuselage6" />
+          <TextureStyle id="Fuselage7" />
+          <TextureStyle id="Fuselage8" />
+          <TextureStyle id="Fuselage9" />
+          <TextureStyle id="Fuselage10" />
+          <TextureStyle id="Fuselage11" />
+          <TextureStyle id="Default" />
+        </TextureStyles>
+      </Style>
+    </SubpartStyles>
+  </PartStyles>
+</Part>

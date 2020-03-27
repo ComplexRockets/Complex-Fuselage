@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Part name="Procedural NoseCone">
+  <PartType id="ProceduralNoseCone" includeInBodyDrag="true" name="Procedural NoseCone" prefabPath="Assets/Resources/Craft/Parts/Prefabs/ProceduralNoseCone.prefab" mass="0" price="0" partCollisions="Default" defaultMaterials="0,1,2,3,4" subpartsSharePartStyle="false" stylesShareHeader="false">
+    <Modifiers>
+      <Config autoActivateIfNoStageOrActivationGroup="true" buoyancyBaseScale="1" buoyancyUserScale="1" centerOfMass="0,0,0" collisionDisconnectImpulse="1000" collisionDisconnectVelocity="15" collisionExplodeImpulse="2000" collisionExplodeVelocity="30" collisionPreventExternalDisconnections="false" collisionVelocityMode="NormalOnly" dragScale="1" fuelLine="false" heatShield="0" includeInDrag="true" inertiaTensorBaseScale="1" inertiaTensorMin="0.05" inertiaTensorUserScale="1" massScale="1" maxDamage="100" maxTemperature="1500" partCollisionHandling="Default" partCollisionResponse="Default" partScale="1,1,1" preventDebris="false" raiseWaterEventsEvenIfNotBuoyant="false" stageActivationType="None" supportsActivation="false" thermalMassRatio="1" inspectorEnabled="true" partPropertiesEnabled="true" staticPriceAndMass="false" />
+      <MoFuselageMod.MeshGenerator width="2" depth="4" length="5" curvature="20" distribution="20" twist="20" inspectorEnabled="true" partPropertiesEnabled="true" staticPriceAndMass="false" />
+      <MoFuselageMod.DomeGenerator inspectorEnabled="true" partPropertiesEnabled="true" staticPriceAndMass="false" />
+    </Modifiers>
+    <AttachPoints>
+      <AttachPoint name="Bottom" position="0,0,0" rotation="90,0,0" allowRotation="true" allowInvertedConnection="false" canReceive="true" canSeek="true" ignoreSurfaces="false" />
+      <AttachPoint name="Surface" surface="MeshGeneratorCollider" canSeek="false" />
+    </AttachPoints>
+    <SubpartTypes>
+      <SubpartType index="0" xmlName="" displayName="Part" />
+    </SubpartTypes>
+  </PartType>
+  <DesignerParts>
+    <DesignerPart name="Procedural NoseCone" category="Structural" description="" order="0" showInDesigner="true" snapshotDistanceScaler="1" snapshotRotation="30,30,0">
+      <Assembly>
+        <Parts>
+          <Part id="1" partType="ProceduralNoseCone" position="0,0,0" rotation="0,0,0">
+            <Config />
+            <MoFuselageMod.MeshGenerator />
+            <MoFuselageMod.DomeGenerator />
+          </Part>
+        </Parts>
+      </Assembly>
+    </DesignerPart>
+  </DesignerParts>
+  <PartStyles>
+    <SubpartStyles subpartIndex="0">
+      <Style id="Default" displayName="Default">
+        <TextureStyles>
+          <TextureStyle id="Fuselage1" />
+          <TextureStyle id="Fuselage2" />
+          <TextureStyle id="Fuselage3" />
+          <TextureStyle id="Fuselage4" />
+          <TextureStyle id="Fuselage5" />
+          <TextureStyle id="Fuselage6" />
+          <TextureStyle id="Fuselage7" />
+          <TextureStyle id="Fuselage8" />
+          <TextureStyle id="Fuselage9" />
+          <TextureStyle id="Fuselage10" />
+          <TextureStyle id="Fuselage11" />
+          <TextureStyle id="Default" />
+        </TextureStyles>
+      </Style>
+    </SubpartStyles>
+  </PartStyles>
+</Part>

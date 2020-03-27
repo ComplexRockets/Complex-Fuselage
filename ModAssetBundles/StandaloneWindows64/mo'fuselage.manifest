@@ -1,0 +1,39 @@
+ManifestFileVersion: 0
+CRC: 996690700
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a30a36aae66f1f459c243951dc684fcc
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ff8a17d42fbf186e2b09eefadd883739
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 49
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: -468989955, guid: 43320b5f70320504aa4b1543184e13b2, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+Assets:
+- Assets/Resources/Craft/Parts/Prefabs/CylinderTank.prefab
+- Assets/Resources/Craft/Parts/Definitions/CylinderTank.xml
+- Assets/_ModAssets_/Mo'Fuselage.dll.bytes
+- Assets/_ModAssets_/ModManifest.xml.bytes
+Dependencies: []
