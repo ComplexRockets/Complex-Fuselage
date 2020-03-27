@@ -6,9 +6,9 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
     using ModApi.Common;
     using ModApi.Craft.Parts;
     using ModApi.Craft;
+    using ModApi.Design;
     using ModApi.GameLoop.Interfaces;
     using UnityEngine;
-    using ModApi.Design;
 
     public class CylinderTankScript : PartModifierScript<CylinderTankData> {
 
@@ -20,7 +20,15 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
         private float aftSkirtHeight = 0.25f;
         private float fwdBulkheadDiameter;
         private float aftBulkheadDiameter;
-
+        private float oldCh;
+        private float oldFdh;
+        private float oldAdh;
+        private float oldFsh;
+        private float oldAsh;
+        private bool FwdDomeOccupied;
+        private bool AftDomeOccupied;
+        private bool FwdSkirtOccupied;
+        private bool AftSkirtOccupied;
         private GameObject Tank;
         private GameObject Bottom;
         private GameObject Middle;
@@ -43,12 +51,14 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
         }
 
         public void UpdateTank () {
+            UpdateAttachPoints ();
             CylinderHeightUpdated (Data.CylinderHeight / cylinderHeight);
             FwdBulkheadHeightUpdated (Data.FwdBulkheadHeight / fwdBulkheadHeight);
             AftBulkheadHeightUpdated (Data.AftBulkheadHeight / aftBulkheadHeight);
             TankDiameterUpdated (Data.TankDiameter / tankDiameter);
             FwdSkirtHeightUpdated (Data.FwdSkirtHeight / fwdSkirtHeight);
             AftSkirtHeightUpdated (Data.AftSkirtHeight / aftSkirtHeight);
+            OffsetUpdate (Data.FwdBulkheadHeight / fwdBulkheadHeight, Data.AftBulkheadHeight / aftBulkheadHeight, Data.FwdSkirtHeight / fwdSkirtHeight, Data.AftSkirtHeight / aftSkirtHeight, Data.CylinderHeight / cylinderHeight);
             FuelPercentageUpdated ();
         }
 
@@ -76,7 +86,7 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
 
                 aftSkirtYOffset.y = -Data.CylinderHeight / 2 - Data.AftSkirtHeight;
                 aftBulkheadYOffset.y = -Data.CylinderHeight / 2;
-                
+
                 if (aftBulkheadHeight > 0) { aftBulkheadYOffset.y -= Data.AftBulkheadHeight; }
 
                 xOffset.z = Data.TankDiameter / 2f;
@@ -84,15 +94,31 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
                 foreach (AttachPoint attachPoint in base.PartScript.Data.AttachPoints) {
                     if (attachPoint.Tag == "STop") {
                         attachPoint.AttachPointScript.transform.localPosition = fwdSkirtYOffset;
+                        if (attachPoint.PartConnections.Count == 0) FwdSkirtOccupied = false;
+                        else FwdSkirtOccupied = true;
+
                     } else if (attachPoint.Tag == "SBottom") {
                         attachPoint.AttachPointScript.transform.localPosition = aftSkirtYOffset;
+                        if (attachPoint.PartConnections.Count == 0) AftSkirtOccupied = false;
+                        else AftSkirtOccupied = true;
+
                     } else if (attachPoint.Tag == "ETop") {
                         attachPoint.AttachPointScript.transform.localPosition = fwdBulkheadYOffset;
+                        if (attachPoint.PartConnections.Count == 0) FwdDomeOccupied = false;
+                        else FwdDomeOccupied = true;
+
                     } else if (attachPoint.Tag == "EBottom") {
                         attachPoint.AttachPointScript.transform.localPosition = aftBulkheadYOffset;
+                        if (attachPoint.PartConnections.Count == 0) AftDomeOccupied = false;
+                        else AftDomeOccupied = true;
+
                     } else if (attachPoint.Tag == "Front") {
                         attachPoint.AttachPointScript.transform.localPosition = xOffset;
                     }
+                    Debug.Log(FwdDomeOccupied);
+                    Debug.Log(AftDomeOccupied);
+                    Debug.Log(FwdSkirtOccupied);
+                    Debug.Log(AftSkirtOccupied);
                 }
             }
         }
@@ -112,7 +138,6 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
             Bottom.transform.localPosition = temp;
             AftSkirt.transform.localPosition = temp;
 
-            UpdateAttachPoints ();
             UpdateFuel ();
         }
         public void FwdBulkheadHeightUpdated (float num) {
@@ -121,7 +146,6 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
             Top.transform.localScale = temp;
 
             FwdBulkheadDiameterUpdate (Data.FwdSkirtHeight / fwdSkirtHeight, num);
-            UpdateAttachPoints ();
             UpdateFuel ();
         }
         public void AftBulkheadHeightUpdated (float num) {
@@ -130,7 +154,6 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
             Bottom.transform.localScale = temp;
 
             AftBulkheadDiameterUpdate (Data.AftSkirtHeight / aftSkirtHeight, num);
-            UpdateAttachPoints ();
             UpdateFuel ();
         }
         public void TankDiameterUpdated (float num) {
@@ -139,7 +162,6 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
             temp.x = num;
             Tank.transform.localScale = temp;
 
-            UpdateAttachPoints ();
             UpdateFuel ();
         }
         public void FwdSkirtHeightUpdated (float num) {
@@ -148,7 +170,6 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
             FwdSkirt.transform.localScale = temp;
 
             FwdBulkheadDiameterUpdate (num, Data.FwdBulkheadHeight / fwdBulkheadHeight);
-            UpdateAttachPoints ();
             UpdateFuel ();
         }
         public void AftSkirtHeightUpdated (float num) {
@@ -157,8 +178,16 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
             AftSkirt.transform.localScale = temp;
 
             AftBulkheadDiameterUpdate (num, Data.AftBulkheadHeight / aftBulkheadHeight);
-            UpdateAttachPoints ();
             UpdateFuel ();
+        }
+
+        public void AftBulkheadDiameterUpdate (float asHM, float aeHM) {
+            if (asHM <= 0.005f) { if (aeHM >= 0f) { aftBulkheadDiameter = 1 / 0.975f; } else { aftBulkheadDiameter = 0.975f; } } else { aftBulkheadDiameter = 1f; }
+
+            temp = Bottom.transform.localScale;
+            temp.x = aftBulkheadDiameter;
+            temp.y = aftBulkheadDiameter;
+            Bottom.transform.localScale = temp;
         }
 
         public void FuelPercentageUpdated () {
@@ -174,13 +203,24 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
             Top.transform.localScale = temp;
         }
 
-        public void AftBulkheadDiameterUpdate (float asHM, float aeHM) {
-            if (asHM <= 0.005f) { if (aeHM >= 0f) { aftBulkheadDiameter = 1 / 0.975f; } else { aftBulkheadDiameter = 0.975f; } } else { aftBulkheadDiameter = 1f; }
+        public void OffsetUpdate (float fdh, float adh, float fsh, float ash, float ch) {
+                float offset = 0;
 
-            temp = Bottom.transform.localScale;
-            temp.x = aftBulkheadDiameter;
-            temp.y = aftBulkheadDiameter;
-            Bottom.transform.localScale = temp;
+                if (FwdDomeOccupied || FwdSkirtOccupied && AftDomeOccupied || AftSkirtOccupied);
+                else if (FwdDomeOccupied && fdh >= fsh) offset += (ch / 2 + fdh) - (oldCh / 2 + oldFdh);
+                else if (AftDomeOccupied && adh >= ash) offset += (ch / 2 + fdh) - (oldCh / 2 + oldFdh);
+                else if (FwdSkirtOccupied && fsh > fdh) offset += (ch / 2 + fsh) - (oldCh / 2 + oldFsh);
+                else if (AftSkirtOccupied && ash > adh) offset += (ch / 2 + fsh) - (oldCh / 2 + oldFsh);
+
+                temp = transform.localPosition;
+                temp.y = offset;
+                transform.localPosition = temp;
+
+                oldFdh = fdh;
+                oldAdh = adh;
+                oldFsh = fsh;
+                oldAsh = ash;
+                oldCh = ch;
         }
 
         public override void OnCraftStructureChanged (ICraftScript craftScript) {
@@ -189,9 +229,9 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
                 Data.OnDesignerCraftStructureChanged ();
             }
         }
-    
-        public override void OnSymmetry(SymmetryMode mode, IPartScript originalPart, bool created) {
-            UpdateTank();
+
+        public override void OnSymmetry (SymmetryMode mode, IPartScript originalPart, bool created) {
+            UpdateTank ();
         }
     }
 }
