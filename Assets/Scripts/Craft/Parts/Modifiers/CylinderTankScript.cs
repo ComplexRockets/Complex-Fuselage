@@ -80,17 +80,17 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
             Vector3 xOffset = new Vector3 ();
 
             if (Game.InDesignerScene) {
-                fwdSkirtYOffset.y = Data.CylinderHeight / 2 + Data.FwdSkirtHeight;
-                fwdBulkheadYOffset.y = Data.CylinderHeight / 2;
-                if (fwdBulkheadHeight > 0) { fwdBulkheadYOffset.y += Data.FwdBulkheadHeight; }
+                if (!(FwdDomeOccupied || FwdSkirtOccupied && AftDomeOccupied || AftSkirtOccupied)) {
+                    fwdSkirtYOffset.y = Data.CylinderHeight / 2 + Data.FwdSkirtHeight;
+                    fwdBulkheadYOffset.y = Data.CylinderHeight / 2;
+                    if (fwdBulkheadHeight > 0) fwdBulkheadYOffset.y += Data.FwdBulkheadHeight;
 
-                aftSkirtYOffset.y = -Data.CylinderHeight / 2 - Data.AftSkirtHeight;
-                aftBulkheadYOffset.y = -Data.CylinderHeight / 2;
+                    aftSkirtYOffset.y = -Data.CylinderHeight / 2 - Data.AftSkirtHeight;
+                    aftBulkheadYOffset.y = -Data.CylinderHeight / 2;
+                    if (aftBulkheadHeight > 0) aftBulkheadYOffset.y -= Data.AftBulkheadHeight;
 
-                if (aftBulkheadHeight > 0) { aftBulkheadYOffset.y -= Data.AftBulkheadHeight; }
-
-                xOffset.z = Data.TankDiameter / 2f;
-
+                    xOffset.z = Data.TankDiameter / 2f;
+                }
                 foreach (AttachPoint attachPoint in base.PartScript.Data.AttachPoints) {
                     if (attachPoint.Tag == "STop") {
                         attachPoint.AttachPointScript.transform.localPosition = fwdSkirtYOffset;
@@ -115,15 +115,12 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
                     } else if (attachPoint.Tag == "Front") {
                         attachPoint.AttachPointScript.transform.localPosition = xOffset;
                     }
-                    Debug.Log(FwdDomeOccupied);
-                    Debug.Log(AftDomeOccupied);
-                    Debug.Log(FwdSkirtOccupied);
-                    Debug.Log(AftSkirtOccupied);
                 }
             }
         }
 
         public void CylinderHeightUpdated (float num) {
+            if (FwdDomeOccupied || FwdSkirtOccupied && AftDomeOccupied || AftSkirtOccupied) return;
             temp = Middle.transform.localScale;
             temp.z = num;
             Middle.transform.localScale = temp;
@@ -141,6 +138,8 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
             UpdateFuel ();
         }
         public void FwdBulkheadHeightUpdated (float num) {
+            if (FwdDomeOccupied || FwdSkirtOccupied && AftDomeOccupied || AftSkirtOccupied) return;
+
             temp = Top.transform.localScale;
             temp.z = num;
             Top.transform.localScale = temp;
@@ -149,6 +148,8 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
             UpdateFuel ();
         }
         public void AftBulkheadHeightUpdated (float num) {
+            if (FwdDomeOccupied || FwdSkirtOccupied && AftDomeOccupied || AftSkirtOccupied) return;
+
             temp = Bottom.transform.localScale;
             temp.z = num;
             Bottom.transform.localScale = temp;
@@ -165,6 +166,8 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
             UpdateFuel ();
         }
         public void FwdSkirtHeightUpdated (float num) {
+            if (FwdDomeOccupied || FwdSkirtOccupied && AftDomeOccupied || AftSkirtOccupied) return;
+
             temp = FwdSkirt.transform.localScale;
             temp.z = num;
             FwdSkirt.transform.localScale = temp;
@@ -173,6 +176,8 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
             UpdateFuel ();
         }
         public void AftSkirtHeightUpdated (float num) {
+            if (FwdDomeOccupied || FwdSkirtOccupied && AftDomeOccupied || AftSkirtOccupied) return;
+
             temp = AftSkirt.transform.localScale;
             temp.z = num;
             AftSkirt.transform.localScale = temp;
@@ -204,23 +209,25 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
         }
 
         public void OffsetUpdate (float fdh, float adh, float fsh, float ash, float ch) {
-                float offset = 0;
+            float offset = 0;
 
-                if (FwdDomeOccupied || FwdSkirtOccupied && AftDomeOccupied || AftSkirtOccupied);
-                else if (FwdDomeOccupied && fdh >= fsh) offset += (ch / 2 + fdh) - (oldCh / 2 + oldFdh);
-                else if (AftDomeOccupied && adh >= ash) offset += (ch / 2 + fdh) - (oldCh / 2 + oldFdh);
-                else if (FwdSkirtOccupied && fsh > fdh) offset += (ch / 2 + fsh) - (oldCh / 2 + oldFsh);
-                else if (AftSkirtOccupied && ash > adh) offset += (ch / 2 + fsh) - (oldCh / 2 + oldFsh);
+            if (FwdDomeOccupied || FwdSkirtOccupied && AftDomeOccupied || AftSkirtOccupied) offset = 0;
+            else if (FwdDomeOccupied && fdh >= fsh) offset = (ch / 2 + fdh) - (oldCh / 2 + oldFdh);
+            else if (AftDomeOccupied && adh >= ash) offset = (ch / 2 + adh) - (oldCh / 2 + oldAdh);
+            else if (FwdSkirtOccupied && fsh > fdh) offset = (ch / 2 + fsh) - (oldCh / 2 + oldFsh);
+            else if (AftSkirtOccupied && ash > adh) offset = (ch / 2 + ash) - (oldCh / 2 + oldAsh);
+            if (FwdDomeOccupied || FwdSkirtOccupied && AftDomeOccupied || AftSkirtOccupied) Debug.Log ("Blocked");
+            else Debug.Log (offset);
 
-                temp = transform.localPosition;
-                temp.y = offset;
-                transform.localPosition = temp;
+            temp = transform.localPosition;
+            temp.y += offset;
+            transform.localPosition = temp;
 
-                oldFdh = fdh;
-                oldAdh = adh;
-                oldFsh = fsh;
-                oldAsh = ash;
-                oldCh = ch;
+            oldFdh = fdh;
+            oldAdh = adh;
+            oldFsh = fsh;
+            oldAsh = ash;
+            oldCh = ch;
         }
 
         public override void OnCraftStructureChanged (ICraftScript craftScript) {
