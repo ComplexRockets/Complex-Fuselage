@@ -15,8 +15,8 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
     [PartModifierTypeId ("MoFuselageMod.CylinderTank")]
     public class CylinderTankData : PartModifierData<CylinderTankScript> {
 
-        public override float Mass => ( Volume - Capacity + sVolume ) * density * 0.01f; // Shell Volume(m3) * Shell Density(kg/m3) * massScale
-        public override int Price => 100 * Mathf.CeilToInt ( Mass * pricePerKg ); // It only consider Material Cost. It would be good if we can sondier Conversion Cost
+        public override float Mass => (Volume - Capacity + sVolume) * density * 0.01f; // Shell Volume(m3) * Shell Density(kg/m3) * massScale
+        public override int Price => 100 * Mathf.CeilToInt (Mass * pricePerKg); // It only consider Material Cost. It would be good if we can sondier Conversion Cost
 
         private float density;
         private float pricePerKg;
@@ -36,35 +36,33 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
             }
         }
 
-        public float FwdBulkheadHeight{
-            get{ 
-            float.TryParse (fwdBulkheadHeight, out float fwdBH);
-            float domeThickness = shellThickness/2f;
+        public float FwdBulkheadHeight {
+            get {
+                float.TryParse (fwdBulkheadHeight, out float fwdBH);
+                float domeThickness = shellThickness / 2f;
 
-            if(fwdBH < domeThickness && fwdBH >= 0f) return domeThickness;
-            else if(fwdBH < 0f && fwdBH > -domeThickness) return -domeThickness;
-            else if(fwdBH < -domeThickness && fwdBH < AftBulkheadHeight){
-                if(fwdBH < shellThickness - CylinderHeight - AftBulkheadHeight)
-                return shellThickness - CylinderHeight - AftBulkheadHeight;
-                return fwdBH;
-                }
-            else return fwdBH;
+                if (fwdBH < domeThickness && fwdBH >= 0f) return domeThickness;
+                else if (fwdBH < 0f && fwdBH > -domeThickness) return -domeThickness;
+                else if (fwdBH < -domeThickness && fwdBH < AftBulkheadHeight) {
+                    if (fwdBH < shellThickness - CylinderHeight - AftBulkheadHeight)
+                        return shellThickness - CylinderHeight - AftBulkheadHeight;
+                    return fwdBH;
+                } else return fwdBH;
             }
         }
 
-        public float AftBulkheadHeight{
-            get{ 
-            float.TryParse (aftBulkheadHeight, out float aftBH);
-            float domeThickness = shellThickness/2f;
+        public float AftBulkheadHeight {
+            get {
+                float.TryParse (aftBulkheadHeight, out float aftBH);
+                float domeThickness = shellThickness / 2f;
 
-            if(aftBH < domeThickness && aftBH >= 0f) return domeThickness;
-            else if(aftBH < 0f && aftBH > -domeThickness) return -domeThickness;
-            else if(aftBH < -domeThickness && aftBH < FwdBulkheadHeight){
-                if(aftBH < shellThickness - CylinderHeight - FwdBulkheadHeight)
-                return shellThickness - CylinderHeight - FwdBulkheadHeight;
-                return aftBH;
-                }
-            else return aftBH;
+                if (aftBH < domeThickness && aftBH >= 0f) return domeThickness;
+                else if (aftBH < 0f && aftBH > -domeThickness) return -domeThickness;
+                else if (aftBH < -domeThickness && aftBH < FwdBulkheadHeight) {
+                    if (aftBH < shellThickness - CylinderHeight - FwdBulkheadHeight)
+                        return shellThickness - CylinderHeight - FwdBulkheadHeight;
+                    return aftBH;
+                } else return aftBH;
             }
         }
 
@@ -106,23 +104,27 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
         private string tankDiameter = "1";
 
         [SerializeField]
-        [DesignerPropertyTextInput (Label = "Top Dome    ", Order = 3, Tooltip = "Change the length of the Top Dome")]
+        [DesignerPropertyTextInput (Label = "Top Dome    ", Order = 4, Tooltip = "Change the length of the Top Dome")]
         private string fwdBulkheadHeight = "0.5";
 
         [SerializeField]
-        [DesignerPropertyTextInput (Label = "Bottom Dome", Order = 4, Tooltip = "Change the length of the Bottom Dome")]
+        [DesignerPropertyTextInput (Label = "Bottom Dome", Order = 5, Tooltip = "Change the length of the Bottom Dome")]
         private string aftBulkheadHeight = "0.5";
 
         [SerializeField]
-        [DesignerPropertyTextInput (Label = "Top Skirt   ", Order = 5, Tooltip = "Change the length of the Top Skirt")]
+        [DesignerPropertyTextInput (Label = "Top Skirt   ", Order = 6, Tooltip = "Change the length of the Top Skirt")]
         private string fwdSkirtHeight = "0.25";
 
         [SerializeField]
-        [DesignerPropertyTextInput (Label = "Bottom Skirt", Order = 6, Tooltip = "Change the length of the Bottom Skirt")]
+        [DesignerPropertyTextInput (Label = "Bottom Skirt", Order = 7, Tooltip = "Change the length of the Bottom Skirt")]
         private string aftSkirtHeight = "0.25";
 
         [SerializeField]
-        [DesignerPropertySlider (Label = "Fuel Percentage", Order = 8, MinValue = 0, MaxValue = 100, Tooltip = "Change the percentage of fuel capacity", NumberOfSteps = 101)]
+        [DesignerPropertyToggleButton (Label = "Auto Resize", Order = 8, Tooltip = "Indicates if the tank will adapt to other parts size")]
+        private bool autoResize = true;
+
+        [SerializeField]
+        [DesignerPropertySlider (Label = "Fuel Percentage", Order = 9, MinValue = 0, MaxValue = 100, Tooltip = "Change the percentage of fuel capacity", NumberOfSteps = 101)]
         private float fuelPercentage = 100f;
 
         protected override void OnDesignerInitialization (IDesignerPartPropertiesModifierInterface d) {
@@ -167,28 +169,26 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
             Script.PartScript.CraftScript.RaiseDesignerCraftStructureChangedEvent ();
         }
 
-        public void materialShellListMaking()
-        {
-            materialShellList.Clear();
+        public void materialShellListMaking () {
+            materialShellList.Clear ();
 
-            for(int i=0; i < Material.shellMaterial.GetLength(0); i++)
-            {
-                string shellMaterial = Material.shellMaterial[i,0].ToString();
-                materialShellList.Add(shellMaterial);
+            for (int i = 0; i < Material.shellMaterial.GetLength (0); i++) {
+                string shellMaterial = Material.shellMaterial[i, 0].ToString ();
+                materialShellList.Add (shellMaterial);
             }
 
-            density = Convert.ToSingle(Material.shellMaterial[materialShellList.IndexOf(materialShell),1]);
-            pricePerKg = Convert.ToSingle(Material.shellMaterial[materialShellList.IndexOf(materialShell),2]);
-            shellThickness = Convert.ToSingle(Material.shellMaterial[materialShellList.IndexOf(materialShell),3]);
+            density = Convert.ToSingle (Material.shellMaterial[materialShellList.IndexOf (materialShell), 1]);
+            pricePerKg = Convert.ToSingle (Material.shellMaterial[materialShellList.IndexOf (materialShell), 2]);
+            shellThickness = Convert.ToSingle (Material.shellMaterial[materialShellList.IndexOf (materialShell), 3]);
         }
 
         private void UpdateValue () {
-            cylinderHeight = CylinderHeight.ToString();
-            tankDiameter = TankDiameter.ToString();
-            fwdBulkheadHeight = FwdBulkheadHeight.ToString();
-            aftBulkheadHeight = AftBulkheadHeight.ToString();
-            fwdSkirtHeight = FwdSkirtHeight.ToString();
-            aftSkirtHeight = AftSkirtHeight.ToString();
+            cylinderHeight = CylinderHeight.ToString ();
+            tankDiameter = TankDiameter.ToString ();
+            fwdBulkheadHeight = FwdBulkheadHeight.ToString ();
+            aftBulkheadHeight = AftBulkheadHeight.ToString ();
+            fwdSkirtHeight = FwdSkirtHeight.ToString ();
+            aftSkirtHeight = AftSkirtHeight.ToString ();
         }
         private string GetDesignerFuelLabel () {
             FuelTankData modifier = base.Part.GetModifier<FuelTankData> ();
@@ -208,6 +208,17 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
             Symmetry.SynchronizePartModifiers (base.Script.PartScript);
             Script.UpdateFuel ();
             Script.PartScript.CraftScript.RaiseDesignerCraftStructureChangedEvent ();
+        }
+        public void OnConnectedToPart (PartConnectedEventData e) {
+            AttachPoint attachPoint = e.ThisAttachPoint;
+            AttachPoint TargetAttachPoint = e.TargetAttachPoint;
+            
+            if (autoResize) {
+                if (TargetAttachPoint.Radius > 0 && (attachPoint.Tag == "STop" || attachPoint.Tag == "SBottom")) {
+                    tankDiameter = (TargetAttachPoint.Radius * 2).ToString ();
+                }
+            }
+            Updates ();
         }
     }
 }

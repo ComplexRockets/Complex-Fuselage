@@ -191,4 +191,5 @@ MonoBehaviour:
     aftBulkheadHeight: 0.5
     fwdSkirtHeight: 0.25
     aftSkirtHeight: 0.25
+    autoResize: 1
     fuelPercentage: 100

@@ -86,7 +86,7 @@
      <None Include="Assets\ModTools\UI\Xml\Menu\MenuUi.xml" />
      <None Include="Assets\ModTools\Parts\PrefabData\Light1.prefab.xml" />
      <None Include="Assets\ModTools\UI\Xml\Design\DesignStyles.xml" />
-     <None Include="Assets\Mo&apos;Fuselage Mod.asmdef" />
+     <None Include="Assets\Mo'Fuselage Mod.asmdef" />
      <None Include="Assets\ModTools\UI\Xml\Sharing\ScreenshotDialog.xml" />
      <None Include="Assets\ModTools\Parts\PrefabData\Eva\EvaChairs\Rocket.prefab.xml" />
      <None Include="Assets\ModTools\UI\Xml\Design\LoadCraftPanel.xml" />
@@ -506,97 +506,97 @@
  <HintPath>/Applications/Unity/Hub/Editor/2019.2.3f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
  <Reference Include="Mystery Squiggle">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/Mystery Squiggle.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/Mystery Squiggle.dll</HintPath>
  </Reference>
  <Reference Include="DOTween">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/DOTween.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="Rewired_Core">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/Rewired_Core.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/Rewired_Core.dll</HintPath>
  </Reference>
  <Reference Include="DOTween43">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/DOTween43.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/DOTween43.dll</HintPath>
  </Reference>
  <Reference Include="Unity.IO.Compression">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/Unity.IO.Compression.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/Unity.IO.Compression.dll</HintPath>
  </Reference>
  <Reference Include="DOTween50">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/DOTween50.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/DOTween50.dll</HintPath>
  </Reference>
  <Reference Include="Rewired_Windows">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/Rewired_Windows.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/Rewired_Windows.dll</HintPath>
  </Reference>
  <Reference Include="Mystery Squiggle UI">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/Mystery Squiggle UI.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/Mystery Squiggle UI.dll</HintPath>
  </Reference>
  <Reference Include="DOTween46">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/DOTween46.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/DOTween46.dll</HintPath>
  </Reference>
  <Reference Include="Rewired_OSX">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/Rewired_OSX.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/Rewired_OSX.dll</HintPath>
  </Reference>
  <Reference Include="Sirenix.OdinInspector.Attributes">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/Sirenix.OdinInspector.Attributes.dll</HintPath>
  </Reference>
  <Reference Include="Web.Client">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/Web.Client.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/Web.Client.dll</HintPath>
  </Reference>
  <Reference Include="ModApi.Editor">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/ModApi.Editor.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/ModApi.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Jundroo.ModTools">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/Jundroo.ModTools.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/Jundroo.ModTools.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.UI">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/UnityEditor.UI.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="ThirdParty.Editor">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/ThirdParty.Editor.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/ThirdParty.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Packages">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/Packages.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/Packages.dll</HintPath>
  </Reference>
  <Reference Include="Mystery Node Set">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/Mystery Node Set.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/Mystery Node Set.dll</HintPath>
  </Reference>
  <Reference Include="Mystery Squiggle Editor">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/Mystery Squiggle Editor.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/Mystery Squiggle Editor.dll</HintPath>
  </Reference>
  <Reference Include="ModApi.Core">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/ModApi.Core.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/ModApi.Core.dll</HintPath>
  </Reference>
  <Reference Include="DOTweenEditor">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/DOTweenEditor.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/DOTweenEditor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="XmlLayout">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/XmlLayout.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/XmlLayout.dll</HintPath>
  </Reference>
  <Reference Include="Jundroo.ModTools.Core">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/Jundroo.ModTools.Core.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/Jundroo.ModTools.Core.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="ThirdParty">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/ThirdParty.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/ThirdParty.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="SimpleRockets2">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/SimpleRockets2.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/SimpleRockets2.dll</HintPath>
  </Reference>
  <Reference Include="ModApi">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/ModApi.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/ModApi.dll</HintPath>
  </Reference>
  <Reference Include="XmlLayout.Editor">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/XmlLayout.Editor.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/XmlLayout.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Jundroo.ModTools.Editor">
- <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo&apos;FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/Jundroo.ModTools.Editor.dll</HintPath>
+ <HintPath>/Users/aram/Documents/Creations/Unity/SimpleRockets2Mod/Mo'FuselageGit/Complex-Fuselage/Assets/ModTools/Assemblies/EditorAssemblies/Jundroo.ModTools.Editor.dll</HintPath>
  </Reference>
  <Reference Include="mscorlib">
  <HintPath>/Applications/Unity/Hub/Editor/2019.2.3f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

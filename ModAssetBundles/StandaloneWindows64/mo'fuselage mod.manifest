@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 943870302
+CRC: 1122475602
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: aa016dd8fde16fe5fd4f0e487766c32f
+    Hash: e56c1a50c42b29b1cb8f5d01a08f1085
   TypeTreeHash:
     serializedVersion: 2
     Hash: ff8a17d42fbf186e2b09eefadd883739
@@ -34,8 +34,8 @@ ClassTypes:
 Assets:
 - Assets/Resources/Craft/Parts/Prefabs/CylinderTank.prefab
 - Assets/Resources/Craft/Parts/Definitions/CylinderTank.xml
-- Assets/_ModAssets_/ModManifest.xml.bytes
 - Assets/Resources/Craft/Parts/Definitions/ProceduralNoseCone.xml
-- Assets/Resources/Craft/Parts/Prefabs/ProceduralNoseCone.prefab
 - Assets/_ModAssets_/Mo'Fuselage Mod.dll.bytes
+- Assets/Resources/Craft/Parts/Prefabs/ProceduralNoseCone.prefab
+- Assets/_ModAssets_/ModManifest.xml.bytes
 Dependencies: []
