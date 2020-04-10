@@ -16,11 +16,8 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
     public class CylinderTankData : PartModifierData<CylinderTankScript> {
 
         public override float Mass => (Volume - Capacity + sVolume) * density * 0.01f; // Shell Volume(m3) * Shell Density(kg/m3) * massScale
-        public override int Price => 100 * Mathf.CeilToInt (Mass * pricePerKg); // It only consider Material Cost. It would be good if we can sondier Conversion Cost
-
-        private float density;
-        private float pricePerKg;
-        private float shellThickness;
+        public override int Price => 100 * Mathf.CeilToInt (Mass * pricePerKg); // It only considers Material Cost. It would be good if we can consondier Conversion Cost
+        private float density, pricePerKg, shellThickness;
 
         public float CylinderHeight {
             get {

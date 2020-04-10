@@ -11,32 +11,10 @@ namespace Assets.Scripts.Craft.Parts.Modifiers {
     using UnityEngine;
 
     public class CylinderTankScript : PartModifierScript<CylinderTankData> {
-
-        private float cylinderHeight = 1f;
-        private float fwdBulkheadHeight = 0.5f;
-        private float aftBulkheadHeight = 0.5f;
-        private float tankDiameter = 1f;
-        private float fwdSkirtHeight = 0.25f;
-        private float aftSkirtHeight = 0.25f;
-        private float fwdBulkheadDiameter;
-        private float aftBulkheadDiameter;
-        private float oldCh;
-        private float oldFdh;
-        private float oldAdh;
-        private float oldFsh;
-        private float oldAsh;
-        private bool LengthBlocked;
-        private bool FwdDomeOccupied;
-        private bool AftDomeOccupied;
-        private bool FwdSkirtOccupied;
-        private bool AftSkirtOccupied;
-        private bool initializing;
-        private GameObject Tank;
-        private GameObject Bottom;
-        private GameObject Middle;
-        private GameObject Top;
-        private GameObject FwdSkirt;
-        private GameObject AftSkirt;
+        private float cylinderHeight = 1f, fwdBulkheadHeight = 0.5f, aftBulkheadHeight = 0.5f, tankDiameter = 1f, fwdSkirtHeight = 0.25f, aftSkirtHeight = 0.25f;
+        private float fwdBulkheadDiameter, aftBulkheadDiameter, oldCh, oldFdh, oldAdh, oldFsh, oldAsh;
+        private bool LengthBlocked, FwdDomeOccupied, AftDomeOccupied, FwdSkirtOccupied, AftSkirtOccupied, initializing;
+        private GameObject Tank, Bottom, Middle, Top, FwdSkirt, AftSkirt;
         private Vector3 temp;
         protected override void OnInitialized () {
             initializing = true;
